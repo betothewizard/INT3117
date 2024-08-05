@@ -22,7 +22,7 @@ graph TD
     D -->|True| E["5. return {decision: 'A', maxLoanTerm: 120}"]
     D -->|False| F{6. creditScore >= 500 AND<br>creditScore < 580 AND<br>monthlyIncome >= 6000000 AND<br>monthlyIncome < 20000000 AND<br>collateralValue >= 1.5 * loanAmount}
     F -->|True| G["7. return {decision: 'C', maxLoanTerm: 60}"]
-    F -->|False| H["8. return {decision: 'R, maxLoanTerm}"]
+    F -->|False| H["8. return {decision: 'R', maxLoanTerm}"]
     C --> I[9. Exit]
     E --> I
     G --> I
@@ -34,4 +34,4 @@ graph TD
 | makeDecision(300, 10000000, 12000000, 10000000) | {decision: 'I', maxLoanTerm: 0}   | {decision: 'I', maxLoanTerm: 0}   | Passed |
 | makeDecision(600, 10000000, 12000000, 21000000) | {decision: 'A', maxLoanTerm: 120} | {decision: 'A', maxLoanTerm: 120} | Passed |
 | makeDecision(550, 10000000, 15000000, 8000000)  | {decision: 'C', maxLoanTerm: 60}  | {decision: 'C', maxLoanTerm: 60}  | Passed |
-| makeDecision(550, 10000000, 12000000, 10000000) | {decision: 'R, maxLoanTerm: 0}    | {decision: 'R, maxLoanTerm: 0}    | Passed |
+| makeDecision(550, 10000000, 12000000, 10000000) | {decision: 'R', maxLoanTerm: 0}   | {decision: 'R', maxLoanTerm: 0}   | Passed |
