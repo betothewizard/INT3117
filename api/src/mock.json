@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Mr Beast: 100 days living in the jungle",
+    "content": "This is an unbelievable story about Mr Beast living in the jungle for 100 days"
+  },
+  {
+    "id": 2,
+    "title": "Dung dịch vệ sinh nhà cửa thần thánh",
+    "content": "Chia sẻ với các bác 1 kinh nghiệm em mới học được về công cuộc dọn dẹp nhà cửa ạ. Em là em thấy cái dung dịch này nó thần thánh thực sự luôn ý, sạch bong kin kít ạ"
+  },
+  {
+    "id": 3,
+    "title": "MCK có động thái mới, lông mày đã mọc trở lại",
+    "content": "NÓNG: MCK cập nhật ảnh mới, lông mày đã mọc trở lại"
+  },
+  {
+    "id": 4,
+    "title": "Nghệ sĩ Hồng Vân: Tôi không thích bị gọi là nữ hoàng phim truyền hình",
+    "content": "Chi tiết về vụ việc nữ hoàng phim truyền hình Hồng Vân không thích bị gọi là nữ hoàng phim truyền hình"
+  },
+  {
+    "id": 5,
+    "title": "Liên Quân Mobile: Garena công bố bản cập nhật 1.41.1",
+    "content": "Điều chỉnh sức mạnh của các vị tướng, cập nhật chế độ chơi mới"
+  },
+  {
+    "id": 6,
+    "title": "Bí mật về việc ăn uống của nữ hoàng Anh",
+    "content": "Điều ai cũng kinh ngạc sau khi biết sự thật về chế độ ăn uống của nữ hoàng Anh"
+  },
+  {
+    "id": 7,
+    "title": "NextJs là gì? Tại sao nên sử dụng NextJs?",
+    "content": "NextJs là một framework của ReactJs, giúp tăng tốc độ phát triển ứng dụng ReactJs. NextJs giúp tối ưu SEO, tăng trải nghiệm người dùng. Ngoài ra, NextJs còn là framework được phát triển bởi Vercel, giúp dễ dàng deploy ứng dụng lên Vercel"
+  },
+  {
+    "id": 8,
+    "title": "Hướng dẫn cách làm món bánh mì ngon tại nhà",
+    "content": "Bánh mì là một món ăn phổ biến, dễ làm, dễ ăn. Bánh mì có thể ăn kèm với nhiều loại thức ăn khác nhau như thịt, cá, rau cải, trứng,..."
+  },
+  {
+    "id": 9,
+    "title": "Sinh viên nên hẹn hò ở đâu?",
+    "content": "Sinh viên có nhiều lựa chọn để hẹn hò như quán cafe, quán ăn, công viên, bãi biển,... Hãy chọn địa điểm phù hợp với túi tiền và sở thích của bạn"
+  },
+  {
+    "id": 10,
+    "title": "Sự thật về Nham trụ trong Kimestu no Yaiba",
+    "content": "Có thể các bạn đã biết Nham trụ là một trong 12 trụ trong Kimetsu no Yaiba, nhưng bạn đã biết sự thật về Nham trụ chưa?"
+  }
+]

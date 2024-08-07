@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreatePostDto } from './dto/post.dto';
@@ -15,8 +16,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  findAll() {
-    return this.appService.findAll();
+  findAll(@Query('page') page: number) {
+    return this.appService.findAll(page);
   }
 
   @Get(':id')

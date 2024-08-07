@@ -1,26 +1,20 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreatePostDto } from 'src/dto/post.dto';
+import * as fs from 'fs';
 
 @Injectable()
 export class AppService {
-  private posts = [
-    {
-      id: 1,
-      title: 'Post 1',
-      content: 'This is post 1',
-    },
-    {
-      id: 2,
-      title: 'Post 2',
-      content:
-        'Chia sẻ với các bác 1 kinh nghiệm em mới học được về công cuộc dọn dẹp nhà cửa ạ. Em là em thấy cái dung dịch này nó thần thánh thực sự luôn ý, sạch bong kin kít ạ',
-    },
-    {
-      id: 3,
-      title: 'Post 3',
-      content: 'NÓNG: MCK cập nhật ảnh mới, lông mày đã mọc trở lại',
-    },
-  ];
+  private posts = JSON.parse(fs.readFileSync('src/mock.json', 'utf-8'));
+
+  private LIMIT = 4;
+
+  private writeFile(posts) {
+    fs.writeFileSync('src/mock.json', JSON.stringify(posts, null, 2));
+  }
 
   private findNextId() {
     const ids = new Set(this.posts.map((post) => post.id));
@@ -40,16 +34,34 @@ export class AppService {
     return postIndex;
   }
 
-  findAll() {
-    return this.posts;
+  findAll(page: number = 1) {
+    const startIndex = (page - 1) * this.LIMIT;
+    const endIndex = startIndex + this.LIMIT;
+    const total = this.posts.length;
+    const paginatedPosts = this.posts.slice(startIndex, endIndex);
+    return {
+      data: paginatedPosts,
+      meta: {
+        page,
+        totalPages: Math.ceil(total / this.LIMIT),
+        limit: this.LIMIT,
+        total,
+      },
+    };
   }
 
   create(createPostDto: CreatePostDto) {
+    if (createPostDto.title === '' || !createPostDto.title) {
+      throw new BadRequestException('Post title cannot be empty');
+    }
+
     const newPost = {
       id: this.findNextId(),
-      ...createPostDto,
+      title: createPostDto.title,
+      content: createPostDto.content || '',
     };
     this.posts.push(newPost);
+    this.writeFile(this.posts);
     return newPost;
   }
 
@@ -64,12 +76,14 @@ export class AppService {
       ...this.posts[postIndex],
       ...updatePostDto,
     };
+    this.writeFile(this.posts);
     return this.posts[postIndex];
   }
 
   delete(id: number) {
     const postIndex = this.findIndex(id);
-    this.posts.splice(postIndex, 1);
-    return this.posts[postIndex].id;
+    const deletedPost = this.posts.splice(postIndex, 1)[0].id;
+    this.writeFile(this.posts);
+    return deletedPost.id;
   }
 }
